@@ -1,0 +1,427 @@
+<html>
+
+<head>
+    <!-- Meta Tag to be Pasted in Head of your Page -->
+    <META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+
+    <!-- CSS code for the form -->
+    <style type="text/css">
+        .form-style-5 {
+            max-width: 700px;
+            padding: 10px 20px;
+            background: #f4f7f8;
+            margin: 10px auto;
+            padding: 20px;
+            background: #f4f7f8;
+            border-radius: 8px;
+            font-family: Georgia, "Times New Roman", Times, serif;
+        }
+        
+        .form-style-5 fieldset {
+            border: none;
+        }
+        
+        .form-style-5 legend {
+            font-size: 1.4em;
+            margin-bottom: 10px;
+        }
+        
+        .form-style-5 label {
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .form-style-5 input[type="text"],
+        .form-style-5 textarea,
+        .form-style-5 select {
+            font-family: Georgia, "Times New Roman", Times, serif;
+            background: rgba(255, 255, 255, .1);
+            border: none;
+            border-radius: 4px;
+            font-size: 15px;
+            margin: 0;
+            outline: 0;
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            background-color: #e8eeef;
+            color: #8a97a0;
+            -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+            margin-bottom: 30px;
+        }
+        
+        .form-style-5 input[type="text"]:focus,
+        .form-style-5 textarea:focus,
+        .form-style-5 select:focus {
+            background: #d2d9dd;
+        }
+        
+        .form-style-5 select {
+            -webkit-appearance: menulist-button;
+            height: 35px;
+        }
+        
+        .form-style-5 .number {
+            background: #1abc9c;
+            color: #fff;
+            height: 30px;
+            width: 30px;
+            display: inline-block;
+            font-size: 0.8em;
+            margin-right: 4px;
+            line-height: 30px;
+            text-align: center;
+            text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+            border-radius: 15px 15px 15px 0px;
+        }
+        
+        .form-style-5 input[type="submit"] {
+            position: relative;
+            display: block;
+            padding: 19px 39px 18px 39px;
+            color: #FFF;
+            margin: 0 auto;
+            background: #1abc9c;
+            font-size: 18px;
+            text-align: center;
+            font-style: normal;
+            width: 100%;
+            border: 1px solid #16a085;
+            border-width: 1px 1px 3px;
+            margin-bottom: 10px;
+        }
+        
+        .form-style-5 input[type="submit"]:hover {
+            background: #109177;
+        }
+        
+        .addCategoryButton {
+            display: inline-block;
+            background: #1abc9c;
+            outline: none;
+            border: none;
+            color: #FFF;
+            font-size: 15px;
+            padding: 10px;
+            cursor: pointer;
+            border: 1px solid #16a085;
+            border-width: 1px 1px 3px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        .addCategoryButton:hover {
+            background: #109177;
+        }
+        
+        .category {
+            display: none;
+        }
+        
+        #require {
+            color: red;
+            font-size: small;
+        }
+        
+        body>div>form>div.iti.iti--allow-dropdown {
+            width: 100%;
+            margin-bottom: 30px;
+        }
+        
+        #mobile {
+            padding-left: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-style-5">
+
+        <META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
+        <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+
+            <input type=hidden name="oid" value="00D8d000002bsOk">
+            <input type=hidden name="retURL" value="https://blendhouse.org/thank-you/">
+            <input type=hidden name="lead_source" value="Web">
+
+            <label for="first_name">First Name - الإسم الأول</label><input id="first_name" maxlength="40" name="first_name" size="20" type="text" required /><br>
+
+            <label for="last_name">Last Name - الإسم الأخير</label><input id="last_name" maxlength="80" name="last_name" size="20" type="text" required /><br>
+
+            <label for="email">Email - البريد الإلكتروني</label><input id="email" maxlength="80" name="email" size="20" type="text" required /><br>
+
+            <label for="mobile">Mobile - رقم الجوال</label><input id="mobile" maxlength="40" name="mobile" size="20" type="text" onchange="runner()" Required />
+            <br>
+
+            <label for="title">Title - المسمى الوظيفي</label><input id="title" maxlength="40" name="title" size="20" type="text" required /><br>
+
+            <label for="city">City - المدينة</label><input id="city" maxlength="40" name="city" size="20" type="text" /><br>
+
+            <label for="country">Country - الدولة</label><input id="country" maxlength="40" name="country" size="20" type="text" required /><br>
+
+            <label for="company">Company - إسم الشركة</label><input id="company" maxlength="40" name="company" size="20" type="text" required />
+            <br> Brand Name - اسم العلامة التجارية:<input id="00N8d00000CwSIJ" maxlength="50" name="00N8d00000CwSIJ" size="20" type="text" /><br> Number Of Stores - عدد الأفرع:<input id="00N8d00000CwEb3" name="00N8d00000CwEb3" size="20" type="text" <br>            Active - حالة النشاط التجاري:<input id="00N8d00000CwOei" name="00N8d00000CwOei" type="checkbox" value="1" />
+            <br><br><br>
+
+            <div class="category-1">
+                Category - الأصناف:
+                <select id="00N8d00000CwEbS" name="00N8d00000CwEbS" title="Category" onchange="filterOptions(this)" required>
+                    <option value="">--None--</option>
+                    <option value="Coffee">Coffee - القهوة</option>
+                    <option value="Syrups">Syrups - شراب النكهات</option>
+                    <option value="Sauces">Sauces - الصوصات</option>
+                    <option value="Powders">Powders - البودرات</option>
+                    <option value="Tea">Tea - الشاي</option>
+                    <option value="Bakery">Bakery - المعجنات</option>
+
+                </select> <span><br> Flavor - النكهات:</span><select id="00N8d00000CwEbm" name="00N8d00000CwEbm" title="Flavor" required>
+                </select>
+                <span><br> Monthly Consumption – الاستهلاك الشهري:</span><select id="00N8d00000CwPCL" name="00N8d00000CwPCL" title="Monthly Consumption">
+                </select>
+            </div>
+
+            <div class="category category-2">
+                Category - الاصناف:<select id="00N8d00000CwO4f" name="00N8d00000CwO4f" title="Category 2" onchange="filterOptions(this)">
+                    <option value="">--None--</option>
+                    <option value="Coffee">Coffee - القهوة</option>
+                    <option value="Syrups">Syrups - شراب النكهات</option>
+                    <option value="Sauces">Sauces - الصوصات</option>
+                    <option value="Powders">Powders - البودرات</option>
+                    <option value="Tea">Tea - الشاي</option>
+                    <option value="Bakery">Bakery - المعجنات</option>
+                </select><span><br> Flavor - النكهات:</span><select id="00N8d00000CwO4k" name="00N8d00000CwO4k" title="Flavor 2">
+                </select><span><br> Monthly Consumption – الاستهلاك الشهري:</span><select id="00N8d00000CwO4p" name="00N8d00000CwO4p" title="Monthly Consumption 2">
+                </select><br></div>
+
+
+            <div class="category category-3">
+                Category - الاصناف:<select id="00N8d00000CwO9M" name="00N8d00000CwO9M" title="Category 3" onchange="filterOptions(this)">
+                    <option value="">--None--</option>
+                    <option value="Coffee">Coffee - القهوة</option>
+                    <option value="Syrups">Syrups - شراب النكهات</option>
+                    <option value="Sauces">Sauces - الصوصات</option>
+                    <option value="Powders">Powders - البودرات</option>
+                    <option value="Tea">Tea - الشاي</option>
+                    <option value="Bakery">Bakery - المعجنات</option>
+                </select><span><br> Flavor - النكهات:</span><select id="00N8d00000CwO9W" name="00N8d00000CwO9W" title="Flavor 3">
+                </select><span><br> Monthly Consumption – الاستهلاك الشهري:</span><select id="00N8d00000CwO9g" name="00N8d00000CwO9g" title="Monthly Consumption 3">
+                </select><br></div>
+
+
+            <div class="category category-4">
+                Category - الاصناف:<select id="00N8d00000CwOIa" name="00N8d00000CwOIa" title="Category 4" onchange="filterOptions(this)">
+                    <option value="">--None--</option>
+                    <option value="Coffee">Coffee - القهوة</option>
+                    <option value="Syrups">Syrups - شراب النكهات</option>
+                    <option value="Sauces">Sauces - الصوصات</option>
+                    <option value="Powders">Powders - البودرات</option>
+                    <option value="Tea">Tea - الشاي</option>
+                    <option value="Bakery">Bakery - المعجنات</option>
+                </select><span><br> Flavor - النكهات:</span><select id="00N8d00000CwOIf" name="00N8d00000CwOIf" title="Flavor 4">
+                </select><span><br> Monthly Consumption – الاستهلاك الشهري:</span><select id="00N8d00000CwOIk" name="00N8d00000CwOIk" title="Monthly Consumption 4">
+                </select><br></div>
+
+
+            <div class="category category-5">
+                Category - الاصناف:<select id="00N8d00000CwOdk" name="00N8d00000CwOdk" title="Category 5" onchange="filterOptions(this)">
+                    <option value="">--None--</option>
+                    <option value="Coffee">Coffee - القهوة</option>
+                    <option value="Syrups">Syrups - شراب النكهات</option>
+                    <option value="Sauces">Sauces - الصوصات</option>
+                    <option value="Powders">Powders - البودرات</option>
+                    <option value="Tea">Tea - الشاي</option>
+                    <option value="Bakery">Bakery - المعجنات</option>
+                </select><span><br> Flavor - النكهات:</span><select id="00N8d00000CwOdp" name="00N8d00000CwOdp" title="Flavor 5">
+                </select><span><br> Monthly Consumption – الاستهلاك الشهري:</span><select id="00N8d00000CwOdz" name="00N8d00000CwOdz" title="Monthly Consumption 5">
+                </select><br></div>
+
+
+            <div class="category category-6">
+                Category - الاصناف:<select id="00N8d00000CwOe9" name="00N8d00000CwOe9" title="Category 6" onchange="filterOptions(this)">
+                    <option value="">--None--</option>
+                    <option value="Coffee">Coffee - القهوة</option>
+                    <option value="Syrups">Syrups - شراب النكهات</option>
+                    <option value="Sauces">Sauces - الصوصات</option>
+                    <option value="Powders">Powders - البودرات</option>
+                    <option value="Tea">Tea - الشاي</option>
+                    <option value="Bakery">Bakery - المعجنات</option>
+                </select><span><br> Flavor - النكهات:</span><select id="00N8d00000CwOeE" name="00N8d00000CwOeE" title="Flavor 6">
+                </select><span><br> Monthly Consumption – الاستهلاك الشهري:</span><select id="00N8d00000CwOeJ" name="00N8d00000CwOeJ" title="Monthly Consumption 6"></select>
+            </div>
+
+            <div class="addCategoryButton" onclick="addCategory()">Add Products أضف منتجات</div> <span id="require"></span> <br><br>
+
+            <script>
+                const MonthlyConsumptionOptions = {
+                    Coffee: ['20 - 50 Kg', '50 - 100 Kg', '100 - 200 Kg', '200 - 500 Kg', '500 - 1000 Kg', '>1000 Kg'],
+                    Syrups: [
+                        '6 - 24 liter',
+                        '24 - 72 liter',
+                        '72 - 124 liter',
+                        '124 - 272 liter',
+                        '272 - 524 liter',
+                        '524 - 924 liter',
+                        '>924 liter',
+                    ],
+                    Sauces: [
+                        '6 - 24 liter',
+                        '24 - 72 liter',
+                        '72 - 124 liter',
+                        '124 - 272 liter',
+                        '272 - 524 liter',
+                        '524 - 924 liter',
+                        '>924 liter',
+                    ],
+                    Powders: ['15 - 75 Kg', '75 - 150 Kg', '180 - 210 Kg', '210 - 310 Kg', '310 - 510 Kg', '>510 Kg'],
+                    Tea: ['12 - 24 pieces', '24 - 72 pieces', '72 - 124 pieces', '124 - 272 pieces', '272 - 524 pieces', '524 - 924 pieces', '>924 pieces'],
+                    Bakery: ['12 - 24 pieces', '24 - 72 pieces', '72 - 124 pieces', '124 - 272 pieces', '272 - 524 pieces', '524 - 924 pieces', '>924 pieces'],
+                };
+
+                const FlavorOptions = {
+                    Coffee: ['Espresso - الاسبريسو', 'Filter - المقطرة', 'Green Beans - البن الأخضر'],
+                    Syrups: ['Vanilla - الفانيلا', 'Caramel - الكراميل', 'Hazelnut - البندق'],
+                    Sauces: ['White Chocolate - الشكولاته البيضاء', 'Caramel - الكراميل', 'Dark Chocolate - الشكولاته الداكنة'],
+                    Powders: ['Mocha - الموكا', 'Caramel Latte - كراميل لاتيه', 'Café Latte - كافي لاتيه', 'Arabian Latte - اللاتيه العربي', 'Vanilla - الفانيلا'],
+                    Tea: ['Green Tea - الشاي الأخضر', 'Red Tea - الشاي الأحمر', 'English Tea - الشاي الانجليزي'],
+                    Bakery: ['Halloumi Mint Panini Brown - حلومي نعناع بانيني أسمر',
+                        'Halloumi Mint Panini White - حلومي نعناع بانيني أبيض',
+                        'Chicken Tikka Panini White - دجاج تكا بانيني أبيض',
+                        'Chicken Tikka Bwn Baguette Parmesan Cheese - دجاج تكا أسمر',
+                        'Tuna Diet Brown BPC - تونا دايت أسمر',
+                        'Smoked Turkey Panini White - تركي مدخن بانيني أبيض',
+                        'Cheese Brown S &amp; PC - أربعة أجبان أسمر',
+                        'Cheese Croissant - كروسان جبنة',
+                        'Zatter Croissant - كروسان زعتر',
+                        'Chocolate Croissant - كروسان شوكولاتة', 'Chocolate Donut - دونات شوكولاتة', 'Chocolate Muffin - مافن الشوكولاتة', 'Blueberry Muffin - مافن التوت', 'White Chocolate Cookies - كوكيز الشوكولاتة البيضاء', 'Double Chocolate Cookies - كوكيز الشوكولاتة المزدوجة', 'Cinnamon Danish - دانيش القرفة'
+                    ],
+
+                };
+
+                function removeMonthlyConsumptionOptions(detailSelect) {
+                    const options = detailSelect.querySelectorAll('option');
+                    if (options && options.length > 0) {
+                        options.forEach((option) => {
+                            option.remove();
+                        });
+                    }
+                }
+
+                function removeFlavorOptions(detailSelect) {
+                    const options = detailSelect.querySelectorAll('option');
+                    if (options && options.length > 0) {
+                        options.forEach((option) => {
+                            option.remove();
+                        });
+                    }
+                }
+
+                function createNoneOption() {
+                    const option = document.createElement('option');
+                    option.textContent = '--None--';
+                    option.value = '';
+                    return option;
+                }
+
+                function filterOptions(ref) {
+
+                    const FlavorSelect = ref.nextElementSibling.nextElementSibling;
+                    const MonthlyConsumptionSelect = FlavorSelect.nextElementSibling.nextElementSibling;
+
+                    removeMonthlyConsumptionOptions(MonthlyConsumptionSelect);
+                    removeFlavorOptions(FlavorSelect);
+                    const CategorySelect = ref;
+                    const CategorySelectOptions = CategorySelect.options;
+                    const selectedOption = CategorySelectOptions[CategorySelect.selectedIndex];
+                    if (selectedOption && selectedOption.value && MonthlyConsumptionOptions[selectedOption.value]) {
+                        let options = MonthlyConsumptionOptions[selectedOption.value].map((opt) => {
+                            const el = document.createElement('option');
+                            el.textContent = opt;
+                            el.value = opt;
+                            return el;
+                        });
+
+                        options = [createNoneOption()].concat(options);
+                        options.forEach((opt) => {
+                            MonthlyConsumptionSelect.appendChild(opt);
+                        });
+                    }
+                    if (selectedOption && selectedOption.value && FlavorOptions[selectedOption.value]) {
+                        let options = FlavorOptions[selectedOption.value].map((opt) => {
+                            const el = document.createElement('option');
+                            el.textContent = opt;
+                            el.value = opt.replace(/ -.*/g, "");
+                            return el;
+                        });
+
+                        options = [createNoneOption()].concat(options);
+                        options.forEach((opt) => {
+                            FlavorSelect.appendChild(opt);
+                        });
+                    }
+                }
+
+                var CURRENT_CATEGORY = 1;
+
+                function addCategory() {
+                    var FLAG = 0;
+                    for (i = 1; i <= CURRENT_CATEGORY; i++) {
+
+                        var selectArray = document.querySelectorAll(".category-" + i + ">select");
+                        selectArray.forEach((j) => {
+                            if (j.selectedIndex == 0) {
+                                document.getElementById('require').innerText = "Select all Fields";
+                                FLAG = 1;
+                            }
+
+
+                        });
+                        console.log(selectArray, FLAG);
+                    }
+                    if (FLAG == 0) {
+                        CURRENT_CATEGORY++;
+                        var nextCategory = document.querySelector(".category-" + CURRENT_CATEGORY);
+                        console.log(nextCategory);
+                        nextCategory.style.display = "block";
+                        document.getElementById('require').innerText = " ";
+                        if (CURRENT_CATEGORY == 6) {
+                            document.getElementsByClassName("addCategoryButton")[0].style.display = "none";
+                        }
+                    }
+                }
+            </script>
+            <script>
+                const phoneInputField = document.querySelector("#mobile");
+                const phoneInput = window.intlTelInput(phoneInputField, {
+                    preferredCountries: ["SA"],
+                    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+                });
+
+
+                function runner() {
+                    const phoneNumber = phoneInput.getNumber();
+                    console.log(phoneNumber);
+                    document.getElementById("mobile").value = phoneNumber;
+
+                    console.log(document.getElementById("mobile").value + " VALUENUM");
+                }
+            </script>
+
+            <br> How Did You Hear About Us ? كيف سمعت بنا :<select id="00N8d00000CwEot" name="00N8d00000CwEot" title="How Did You Hear About Us ?">
+                <option value="">--None--</option>
+                <option value="Google Search">Google Search</option>
+                <option value="Instagram">Instagram</option>
+                <option value="Facebook">Facebook</option>
+                <option value="Twitter">Twitter</option>
+                <option value="Website">Website</option>
+                <option value="Friends">Friends</option>
+                <option value="Events">Events</option>
+                <option value="Other">Other</option>
+            </select><br>
+            <br> Specify (If Other):<input id="00N8d00000CwOes" maxlength="50" name="00N8d00000CwOes" size="20" type="text" /><br>
+            <input type="submit" name="submit">
+
+        </form>
